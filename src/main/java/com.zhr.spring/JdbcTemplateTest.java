@@ -36,5 +36,11 @@ public class JdbcTemplateTest {
         List<User> query = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
         System.out.println(query);
     }
+    @Test
+    public void getCount() {
+        String sql = "select count(*) from t_user";
+        Integer integer = jdbcTemplate.queryForObject(sql, Integer.class);
+        System.out.println(integer);
+    }
 
 }
